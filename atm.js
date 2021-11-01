@@ -36,4 +36,11 @@ function validatePin(enteredPin) {
   //In English: if the PIN entered is correct, return True. Otherwise, return False.
 }
 
+module.exports = {
+  getBalanceNow = getBalance,
+  withdrawNow = withdraw,
+  depositNow = deposit,
+  validatePinNow = validatePin
+}
+
 //TODO: Export these functions
