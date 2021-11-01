@@ -1,0 +1,23 @@
+{
+  "name": "atmproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cFadness/ATM.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cFadness/ATM/issues"
+  },
+  "homepage": "https://github.com/cFadness/ATM#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
