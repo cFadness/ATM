@@ -1,24 +1,25 @@
 "use strict";
 
-const {userAccountBalance, userAccountPin} = require("./account")
+let {userAccountBalance} = require("./account")
+const {userAccountPin} = require("./account")
 
 //TODO: Import necessary values from account.js
 
 function getBalance() {
-  return userAccountBalance
+  console.log(userAccountBalance)
   //TODO: Return the customer's acct. balance
 }
 
 function withdraw(withdrawAmount) {
-  let withdrawBalance = userAccountBalance - withdrawAmount
-  console.log(withdrawBalance)
+  userAccountBalance -= withdrawAmount
+  console.log(userAccountBalance)
   //TODO: withdraw amount from current acct. balance
   // Log the current balance after withdrawal is made
 }
 
 function deposit(depositAmount) {
-  let depositBalance = userAccountBalance + depositAmount
-  console.log(depositBalance)
+  userAccountBalance += depositAmount
+  console.log(userAccountBalance)
   //TODO: deposit amount to current acct. balance
   // Log the current balance after deposit is made
 }
@@ -37,10 +38,10 @@ function validatePin(enteredPin) {
 }
 
 module.exports = {
-  getBalanceNow = getBalance,
-  withdrawNow = withdraw,
-  depositNow = deposit,
-  validatePinNow = validatePin
+  getBalanceNow: getBalance,
+  withdrawNow: withdraw,
+  depositNow: deposit,
+  validatePinNow: validatePin
 }
 
 //TODO: Export these functions

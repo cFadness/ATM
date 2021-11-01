@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/cFadness/ATM#readme",
   "dependencies": {
+    "alert": "^5.0.10",
     "prompt-sync": "^4.2.0"
   }
 }

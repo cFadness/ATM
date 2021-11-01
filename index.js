@@ -12,12 +12,14 @@ const {getBalanceNow, withdrawNow, depositNow, validatePinNow} = require("./atm"
 
 function accessATM() {
   let userInput = prompt("Please enter your PIN number")
+  while(validatePinNow(userInput) != true && userInput != "quit"){
+    userInput = prompt("Wrong PIN! Please enter your PIN number. Type 'quit' to exit.")
+    if(userInput === "quit"){
+      prompt("Have a nice day!")
+    }
+  }
   if(validatePinNow(userInput) === true){
     mainMenu()
-  }
-  else{
-    alert("Invalid PIN number")
-    accessATM()
   }
   //TODO: Prompt users for their pin
   //Use ATM.js validatePin function to verify pin matches
@@ -27,7 +29,9 @@ function accessATM() {
 //TODO: Call accessATM function
 
 function mainMenu() {
-  let userInput = prompt(`Enter the number next to the option you would like to select i.e. enter '1' to view current balance.
+  let userInput = ""
+while(userInput!=4 && userInput!=5){
+  userInput = prompt(`Enter the number next to the option you would like to select i.e. enter '1' to view current balance.
   
   1. View account balance
   2. Make a deposit
@@ -38,11 +42,31 @@ function mainMenu() {
   switch(userInput){
     case "1":
       getBalanceNow()
-      mainMenu()
       break;
     case "2":
-      
+      let depositAmount = prompt("Enter amount you would like to deposit.")
+      while(Number.isNaN(parseInt(depositAmount))===true){
+        depositAmount = prompt("Invalid amount! Please type in a number to deposit")
+      }
+      depositNow(parseInt(depositAmount))
+      break;
+    case "3":
+      let withdrawalAmount = prompt("Enter amount you would like to withdraw.")
+      while(Number.isNaN(parseInt(withdrawalAmount))===true){
+        withdrawalAmount = prompt("Invalid amount! Please type in a number to withdraw")
+      }
+      withdrawNow(parseInt(withdrawalAmount))
+      break;
+    case "4":
+      accessATM()
+      break;
+    case "5":
+      prompt("Thank you for using this ATM. Have a nice day!")
+      break;
+    default:
+      prompt("Invalid syntax! Please, try again")
   }
+}
   //TODO: Set up a main menu.  Prompt users for ATM selection to do the following:
   //! Remember - we should keep prompting the user for options until they quit!
   //Get current balance
@@ -52,4 +76,5 @@ function mainMenu() {
   //Quit
 }
 
+accessATM()
 //TODO: Call mainMenu function to start our app!
