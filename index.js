@@ -11,6 +11,14 @@ const {getBalanceNow, withdrawNow, depositNow, validatePinNow} = require("./atm"
 //* Refer to Intro to Node.js PowerPoint for prompt-sync installation instructions
 
 function accessATM() {
+  let userInput = prompt("Please enter your PIN number")
+  if(validatePinNow(userInput) === true){
+    mainMenu()
+  }
+  else{
+    alert("Invalid PIN number")
+    accessATM()
+  }
   //TODO: Prompt users for their pin
   //Use ATM.js validatePin function to verify pin matches
   //Proceed to main menu ONLY if they match
@@ -19,6 +27,22 @@ function accessATM() {
 //TODO: Call accessATM function
 
 function mainMenu() {
+  let userInput = prompt(`Enter the number next to the option you would like to select i.e. enter '1' to view current balance.
+  
+  1. View account balance
+  2. Make a deposit
+  3. Made a withdrawal
+  4. Restart
+  5. Quit`)
+
+  switch(userInput){
+    case "1":
+      getBalanceNow()
+      mainMenu()
+      break;
+    case "2":
+      
+  }
   //TODO: Set up a main menu.  Prompt users for ATM selection to do the following:
   //! Remember - we should keep prompting the user for options until they quit!
   //Get current balance
