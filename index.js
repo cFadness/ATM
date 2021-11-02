@@ -65,6 +65,7 @@ while(userInput!=4 && userInput!=5){
       break;
     default:
       prompt("Invalid syntax! Please, try again")
+      break;
   }
 }
   //TODO: Set up a main menu.  Prompt users for ATM selection to do the following:
