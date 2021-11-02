@@ -35,7 +35,7 @@ while(userInput!=4 && userInput!=5){
   
   1. View account balance
   2. Make a deposit
-  3. Made a withdrawal
+  3. Make a withdrawal
   4. Restart
   5. Quit`)
 
