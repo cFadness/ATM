@@ -1,5 +1,6 @@
 "use strict";
 
+const prompt = require("prompt-sync")()
 let {userAccountBalance} = require("./account")
 const {userAccountPin} = require("./account")
 
@@ -11,8 +12,14 @@ function getBalance() {
 }
 
 function withdraw(withdrawAmount) {
+  if(withdrawAmount<=userAccountBalance){
   userAccountBalance -= withdrawAmount
   console.log(userAccountBalance)
+  }
+  else{
+    prompt("Insufficient funds!")
+    console.log(userAccountBalance)
+  }
   //TODO: withdraw amount from current acct. balance
   // Log the current balance after withdrawal is made
 }
